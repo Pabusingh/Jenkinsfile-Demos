@@ -12,8 +12,9 @@ pipeline {
             sh '''
                echo "Using a multi-line shell step "
                echo $PWD
-               // chmod +x test.sh
-               // ./test.sh
+               cd demo1/1.3
+               chmod +x test.sh
+               ./test.sh
             '''         
          }
       }
