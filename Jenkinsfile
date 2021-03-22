@@ -9,17 +9,20 @@ pipeline{
                 
                 sh '''#!/bin/bash
                     echo $PWD
+                    dockerfile_dir=()
                     dir_list=$(find . -maxdepth 1 -mindepth 1 -type d -printf '%f ')
                     for dir in $dir_list
                     do
                         echo "Checking if readme file exists in $dir"
                         if [ -f "$dir/README.md" ]; then
 
-                            echo "================README.md exists in $dir.==========="                            
+                            echo "================README.md exists in $dir.===========" 
+                            dockerfile_dir+=($dir)                           
                         else
                             echo "================README.md doesn't exist in $dir.==========="
                         fi
                     done                
+                    echo "Readme directorees, $dockerfile_dir"
                 '''
                 // script{
                 //     def list = []
