@@ -23,6 +23,10 @@ pipeline{
                         fi
                     done                
                     echo "Readme directorees, $dockerfile_dir"
+                    for value in "${dockerfile_dir[@]}"
+                    do
+                        echo "value from array $value"
+                    done    
                 '''
                 // script{
                 //     def list = []
