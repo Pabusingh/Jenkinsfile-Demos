@@ -1,5 +1,8 @@
 pipeline{    
     agent any
+    environment{
+        IMAGE_BUILD_ARTIFACT = "image_build_details"
+    }
     stages{
         stage("A"){
             steps{
