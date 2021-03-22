@@ -12,7 +12,7 @@ pipeline{
                 
                 sh '''#!/bin/bash
                     echo $PWD
-                    echo "filename:- $filename"
+                    echo "filename:-$(echo "${filename}""
                     dockerfile_dir=()
                     dir_list=$(find . -maxdepth 1 -mindepth 1 -type d -printf '%f ')
                     for dir in $dir_list
