@@ -7,9 +7,12 @@ pipeline{
     stages{
         stage("A"){
             steps{
+                script{
+                    def filename="testfilename"
                 
                 sh '''#!/bin/bash
                     echo $PWD
+                    echo "filename:- $filename"
                     dockerfile_dir=()
                     dir_list=$(find . -maxdepth 1 -mindepth 1 -type d -printf '%f ')
                     for dir in $dir_list
@@ -18,21 +21,19 @@ pipeline{
                         if [ -f "$dir/README.md" ]; then
 
                             echo "================README.md exists in $dir.===========" 
-                            $DOCKER_DIR+=("$dir")                           
+                            $dockerfile_dir+=("$dir")                           
                         else
                             echo "================README.md doesn't exist in $dir.==========="
                         fi
                     done                
-                    echo "Readme directorees, $DOCKER_DIR"
-                    for value in "${DOCKER_DIR[@]}"
+                    echo "Readme directorees, $dockerfile_dir"
+                    for value in "${dockerfile_dir[@]}"
                     do
                         echo "value from array $value"
                     done                    
                         
                 '''
-                script{
-                    def tests = [:]
-                    tests = env.DOCKER_DIR
+                
                 }
                 // script{
                 //     def list = []
