@@ -24,8 +24,8 @@ pipeline{
               echo "Git commit: $GIT_COMMIT"              
               echo "Calculated docker image tag: $image_tag"
               
-              echo "DOCKER_IMAGE_TAG=$image_tag" > $IMAGE_BUILD_ARTIFACT
-              echo $image_tag > "output.txt"
+              #echo "DOCKER_IMAGE_TAG=$image_tag" > $IMAGE_BUILD_ARTIFACT
+              #echo $image_tag > "output.txt"
               '''
             }
             post{
