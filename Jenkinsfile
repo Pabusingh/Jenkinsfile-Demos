@@ -21,46 +21,23 @@ pipeline{
                         fi
                     done                
                 '''
-                script{
-                    def list = []
-                    // dh = new File('.')
-                    // dh.eachDir {
-                    //     def name = it.name// println(it)
-                    //     // list.add(it)
-                    //     it.eachFileMatch("README.md"){
-                    //     // println(it.dir)
-                    //         println(name)
-                    //         list.add(name)
-                    //     }
-                    // }
-                    // println(list)
-                    // echo "List $list"
+                // script{
+                //     def list = []
+                //     // dh = new File('.')
+                //     // dh.eachDir {
+                //     //     def name = it.name// println(it)
+                //     //     // list.add(it)
+                //     //     it.eachFileMatch("README.md"){
+                //     //     // println(it.dir)
+                //     //         println(name)
+                //     //         list.add(name)
+                //     //     }
+                //     // }
+                //     // println(list)
+                //     // echo "List $list"
 
 
-                // }
-            }
-            post{
-                always{
-                    echo "========always========"
-                }
-                success{
-                    echo "========A executed successfully========"
-                }
-                failure{
-                    echo "========A execution failed========"
-                }
-            }
+            }            
         }
-    }
-    post{
-        always{
-            echo "========always========"
-        }
-        success{
-            echo "========pipeline executed successfully ========"
-        }
-        failure{
-            echo "========pipeline execution failed========"
-        }
-    }
+    }    
 }
