@@ -2,7 +2,7 @@ pipeline{
     agent any
     environment{
         IMAGE_BUILD_ARTIFACT = "image_build_details"
-        DOCKER_DIR=""
+        DOCKER_DIR=()
     }
     stages{
         stage("A"){
@@ -18,17 +18,17 @@ pipeline{
                         if [ -f "$dir/README.md" ]; then
 
                             echo "================README.md exists in $dir.===========" 
-                            dockerfile_dir+=("$dir")                           
+                            $DOCKER_DIR+=("$dir")                           
                         else
                             echo "================README.md doesn't exist in $dir.==========="
                         fi
                     done                
-                    echo "Readme directorees, $dockerfile_dir"
-                    for value in "${dockerfile_dir[@]}"
+                    echo "Readme directorees, $DOCKER_DIR"
+                    for value in "${DOCKER_DIR[@]}"
                     do
                         echo "value from array $value"
-                    done
-                    DOCKER_DIR=$dockerfile_dir    
+                    done                    
+                        
                 '''
                 script{
                     def tests = [:]
