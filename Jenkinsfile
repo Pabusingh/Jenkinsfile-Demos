@@ -17,7 +17,7 @@ pipeline{
                         if [ -f "$dir/README.md" ]; then
 
                             echo "================README.md exists in $dir.===========" 
-                            dockerfile_dir+=($dir)                           
+                            dockerfile_dir+=("$dir")                           
                         else
                             echo "================README.md doesn't exist in $dir.==========="
                         fi
