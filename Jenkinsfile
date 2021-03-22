@@ -32,7 +32,7 @@ pipeline{
                 '''
                 script{
                     def tests = [:]
-                    tests = $DOCKER_DIR
+                    tests = env.DOCKER_DIR
                 }
                 // script{
                 //     def list = []
