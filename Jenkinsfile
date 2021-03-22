@@ -22,7 +22,7 @@ pipeline{
                     done                
                 '''
                 script{
-                    // def list = []
+                    def list = []
                     // dh = new File('.')
                     // dh.eachDir {
                     //     def name = it.name// println(it)
@@ -37,7 +37,7 @@ pipeline{
                     // echo "List $list"
 
 
-                }
+                // }
             }
             post{
                 always{
