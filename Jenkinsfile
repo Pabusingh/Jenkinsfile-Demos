@@ -6,9 +6,24 @@ pipeline{
     stages{
         stage("A"){
             steps{
-                 sh '''#!/bin/bash
+                
+                sh '''#!/bin/bash
                     echo $PWD              
                 '''
+                script{
+                    def list = []
+                    dh = new File('.')
+                    dh.eachDir {
+                        def name = it.name// println(it)
+                        // list.add(it)
+                        it.eachFileMatch("README.md"){
+                        // println(it.dir)
+                            println(name)
+                            list.add(name)
+                        }
+                    }
+                    println(list)
+                }
             }
             post{
                 always{
