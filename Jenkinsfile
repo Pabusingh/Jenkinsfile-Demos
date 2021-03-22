@@ -23,6 +23,7 @@ pipeline{
                         }
                     }
                     println(list)
+                    echo "List $list"
                 }
             }
             post{
