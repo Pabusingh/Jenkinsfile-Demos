@@ -2,6 +2,7 @@ pipeline{
     agent any
     environment{
         IMAGE_BUILD_ARTIFACT = "image_build_details"
+        DOCKER_DIR=""
     }
     stages{
         stage("A"){
@@ -26,8 +27,13 @@ pipeline{
                     for value in "${dockerfile_dir[@]}"
                     do
                         echo "value from array $value"
-                    done    
+                    done
+                    DOCKER_DIR=$dockerfile_dir    
                 '''
+                script{
+                    def tests = [:]
+                    tests = $DOCKER_DIR
+                }
                 // script{
                 //     def list = []
                 //     // dh = new File('.')
