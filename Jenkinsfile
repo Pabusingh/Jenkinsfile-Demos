@@ -2,7 +2,7 @@ pipeline{
     agent any
     environment{
         IMAGE_BUILD_ARTIFACT = "image_build_details"
-        DOCKER_DIR=()
+        DOCKER_DIR=""
     }
     stages{
         stage("A"){
